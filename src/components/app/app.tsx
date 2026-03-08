@@ -5,5 +5,5 @@ type AppProps = {
 }
 
 export default function App({count} : AppProps) {
-  return <MainPage count = {count} />;
+  return <MainPage count={count} />;
 }
