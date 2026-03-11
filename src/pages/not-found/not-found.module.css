@@ -1,0 +1,37 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ff5a5f;
+}
+
+.message {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #484848;
+}
+
+.link {
+  font-size: 18px;
+  color: #008489;
+  text-decoration: none;
+  border: 2px solid #008489;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  background-color: #008489;
+  color: white;
+}
