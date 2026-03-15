@@ -7,6 +7,7 @@ import Login from '../../pages/login/login';
 import NotFound from '../../pages/not-found/not-found';
 import Offer from '../../pages/offer/offer';
 import PrivateRoute from '../private-route/private-route';
+import { mockOffers } from '../../mocks/offers';
 
 type AppProps = {
   count: number;
@@ -17,7 +18,10 @@ export default function App({ count }: AppProps) {
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={AppRoutes.Root} element={<MainPage count={count} />} />
+          <Route
+            path={AppRoutes.Root}
+            element={<MainPage count={count} offers={mockOffers} />}
+          />
 
           <Route
             path={AppRoutes.Favorites}

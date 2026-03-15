@@ -1,13 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/header';
 import OffersList from '../../components/offers-list';
-import { mockOffers } from '../../mocks/offers';
+import { Offer } from '../../types/offer.type';
 
-type CountProposal = {
+type MainPageProps = {
   count: number;
+  offers: Offer[];
 };
 
-export default function MainPage({ count }: CountProposal): JSX.Element {
+export default function MainPage({
+  count,
+  offers,
+}: MainPageProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <Helmet>
@@ -85,7 +89,7 @@ export default function MainPage({ count }: CountProposal): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <OffersList offers={mockOffers} />
+              <OffersList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />
