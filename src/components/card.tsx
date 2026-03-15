@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { Offer } from '../types/offer.type';
+import { AppRoutes } from '../constants/constants';
 
 type CardProps = {
   offer: Offer;
@@ -23,7 +25,7 @@ export default function Card({
         </div>
       ) : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`${AppRoutes.Offer}/${offer.id}`}>
           <img
             className="place-card__image"
             src={offer.previewImage}
@@ -31,7 +33,7 @@ export default function Card({
             height={200}
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -62,7 +64,7 @@ export default function Card({
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.title}</a>
+          <Link to={`${AppRoutes.Offer}/${offer.id}`}>{offer.title}</Link>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>

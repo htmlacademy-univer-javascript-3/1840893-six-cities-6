@@ -1,7 +1,16 @@
 import { Helmet } from 'react-helmet-async';
+import { useParams } from 'react-router-dom';
 import Header from '../../components/header';
+import { mockOffers } from '../../mocks/offers';
+
+type OfferRouteParams = {
+  offerId: string;
+};
 
 export default function Offer(): JSX.Element {
+  const { offerId } = useParams<OfferRouteParams>();
+  const currentOffer = mockOffers.find((offer) => offer.id === offerId);
+
   return (
     <div className="page">
       <Helmet>
@@ -58,12 +67,14 @@ export default function Offer(): JSX.Element {
           </div>
           <div className="offer__container container">
             <div className="offer__wrapper">
-              <div className="offer__mark">
-                <span>Premium</span>
-              </div>
+              {currentOffer?.isPremium ? (
+                <div className="offer__mark">
+                  <span>Premium</span>
+                </div>
+              ) : null}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">
-                  Beautiful &amp; luxurious studio at great location
+                  {currentOffer?.title ?? 'Offer'}
                 </h1>
                 <button className="offer__bookmark-button button" type="button">
                   <svg className="offer__bookmark-icon" width={31} height={33}>
