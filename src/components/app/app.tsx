@@ -30,7 +30,7 @@ export default function App({ count }: AppProps) {
                 restrictedFor={Authorization.NoAuth}
                 redirectedTo={AppRoutes.Login}
               >
-                <Favorites />
+                <Favorites offers={mockOffers.filter((offer) => offer.isFavorite)} />
               </PrivateRoute>
             }
           />
