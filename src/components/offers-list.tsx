@@ -10,7 +10,10 @@ export default function OffersList({ offers }: OffersListProps): JSX.Element {
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
 
   return (
-    <div className="cities__places-list places__list tabs__content">
+    <div
+      className="cities__places-list places__list tabs__content"
+      data-active-offer-id={activeOfferId ? activeOfferId : ''}
+    >
       {offers.map((offer) => (
         <Card
           key={offer.id}
