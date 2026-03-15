@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import Card from '../../components/card';
 import Header from '../../components/header';
+import OffersList from '../../components/offers-list';
 import { mockOffers } from '../../mocks/offers';
 
 type CountProposal = {
@@ -85,11 +85,7 @@ export default function MainPage({ count }: CountProposal): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {mockOffers.map((offer) => (
-                  <Card key={offer.id} offer={offer} />
-                ))}
-              </div>
+              <OffersList offers={mockOffers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />
