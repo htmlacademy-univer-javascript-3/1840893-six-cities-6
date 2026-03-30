@@ -7,22 +7,17 @@ import Login from '../../pages/login/login';
 import NotFound from '../../pages/not-found/not-found';
 import OfferPage from '../../pages/offer/offer';
 import PrivateRoute from '../private-route/private-route';
-import { Offer as OfferType } from '../../types/offer.type';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
-type AppProps = {
-  count: number;
-  offers: OfferType[];
-};
+export default function App() {
+  const allOffers = useSelector((state: RootState) => state.app.offers);
 
-export default function App({ count, offers }: AppProps) {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          <Route
-            path={AppRoutes.Root}
-            element={<MainPage count={count} offers={offers} />}
-          />
+          <Route path={AppRoutes.Root} element={<MainPage />} />
 
           <Route
             path={AppRoutes.Favorites}
@@ -31,9 +26,7 @@ export default function App({ count, offers }: AppProps) {
                 restrictedFor={Authorization.NoAuth}
                 redirectedTo={AppRoutes.Login}
               >
-                <Favorites
-                  offers={offers.filter((offer) => offer.isFavorite)}
-                />
+                <Favorites offers={allOffers.filter((offer) => offer.isFavorite)} />
               </PrivateRoute>
             }
           />
