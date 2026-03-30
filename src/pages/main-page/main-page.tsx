@@ -4,22 +4,20 @@ import Header from '../../components/header/header';
 import OffersList from '../../components/offers-list/offers-list';
 import Map from '../../components/map/map';
 import CitiesList from '../../components/cities-list/cities-list';
-import VariantsSorting, {
-  SortType,
-} from '../../components/variants-sorting/variants-sorting';
+import VariantsSorting, { SortType } from '../../components/variants-sorting/variants-sorting';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { CITIES } from '../../constants/cities';
-import { changeCity } from '../../store/action';
+import { changeCity, changeSortType } from '../../store/action';
 import { City } from '../../types/city.type';
 
 export default function MainPage(): JSX.Element {
   const dispatch = useDispatch();
   const city = useSelector((state: RootState) => state.app.city);
   const allOffers = useSelector((state: RootState) => state.app.offers);
+  const sortType = useSelector((state: RootState) => state.app.sortType);
   const offersByCity = allOffers.filter((offer) => offer.city.name === city.name);
 
-  const [sortType, setSortType] = useState<SortType>('popular');
   const sortedOffers = (() => {
     switch (sortType) {
       case 'priceLowToHigh':
@@ -38,6 +36,10 @@ export default function MainPage(): JSX.Element {
 
   const handleCityChange = (selectedCity: City) => {
     dispatch(changeCity(selectedCity));
+  };
+
+  const handleSortChange = (newSortType: SortType) => {
+    dispatch(changeSortType(newSortType));
   };
 
   return (
@@ -64,7 +66,7 @@ export default function MainPage(): JSX.Element {
               <b className="places__found">
                 {offersByCity.length} places to stay in {city.name}
               </b>
-              <VariantsSorting sortType={sortType} onSortChange={setSortType} />
+              <VariantsSorting sortType={sortType} onSortChange={handleSortChange} />
               <OffersList
                 offers={sortedOffers}
                 activeOfferId={activeOfferId}
