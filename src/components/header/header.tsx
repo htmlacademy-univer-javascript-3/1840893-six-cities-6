@@ -38,7 +38,7 @@ export default function Header(): JSX.Element {
                   <li className="header__nav-item user">
                     <Link className="header__nav-link header__nav-link--profile" to={AppRoutes.Favorites}>
                       <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                      <span className="header__user-name user__name">{userInfo.email}</span>
+                      <span className="header__user-name user__name" data-test-id="user-name">{userInfo.email}</span>
                       <span className="header__favorite-count">0</span>
                     </Link>
                   </li>
@@ -50,7 +50,7 @@ export default function Header(): JSX.Element {
                 </>
               ) : (
                 <li className="header__nav-item">
-                  <Link className="header__nav-link header__nav-link--profile" to={AppRoutes.Login}>
+                  <Link className="header__nav-link header__nav-link--profile" to={AppRoutes.Login} data-test-id="sing-in">
                     <span className="header__signout">Sign in</span>
                   </Link>
                 </li>

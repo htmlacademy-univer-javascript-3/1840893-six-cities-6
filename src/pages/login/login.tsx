@@ -63,6 +63,7 @@ export default function Login(): JSX.Element {
                   name="email"
                   placeholder="Email"
                   required
+                  data-test-id="email-input"
                 />
               </div>
               <div className="login__input-wrapper form__input-wrapper">
@@ -74,11 +75,13 @@ export default function Login(): JSX.Element {
                   name="password"
                   placeholder="Password"
                   required
+                  data-test-id="password-input"
                 />
               </div>
               <button
                 className="login__submit form__submit button"
                 type="submit"
+                data-test-id="sing-in-button"
               >
                 Sign in
               </button>
