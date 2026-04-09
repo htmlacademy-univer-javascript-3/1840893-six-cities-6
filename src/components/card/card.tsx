@@ -16,6 +16,7 @@ export default function Card({
   return (
     <article
       className="cities__card place-card"
+      data-test-id="offer-card"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -38,7 +39,7 @@ export default function Card({
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">€{offer.price}</b>
+            <b className="place-card__price-value" data-test-id="offer-price">€{offer.price}</b>
             <span className="place-card__price-text">
               /&nbsp;night
             </span>

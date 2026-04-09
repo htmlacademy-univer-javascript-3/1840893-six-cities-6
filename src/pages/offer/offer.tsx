@@ -77,7 +77,7 @@ export default function Offer(): JSX.Element {
                 </div>
               ) : null}
               <div className="offer__name-wrapper">
-                <h1 className="offer__name">
+                <h1 className="offer__name" data-test-id="offer-page-title">
                   {currentOffer?.title ?? 'Offer'}
                 </h1>
                 <button className="offer__bookmark-button button" type="button">

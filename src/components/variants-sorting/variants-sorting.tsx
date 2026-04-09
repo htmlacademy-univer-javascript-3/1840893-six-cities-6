@@ -30,6 +30,7 @@ export default function VariantsSorting({
       <ul className="places__options places__options--custom places__options--opened">
         {SORT_OPTIONS.map((option) => (
           <li
+            data-test-id={option.type}
             key={option.type}
             className={
               option.type === sortType
